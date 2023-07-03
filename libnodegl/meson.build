@@ -85,10 +85,7 @@ if host_system == 'windows'
 endif
 
 # Need a flag to declare if using cross compilation or not
-is_native = true
-if host_system == 'android' or host_system == 'iphone'
-  is_native = false
-endif
+is_native = not meson.is_cross_build()
 
 # This trim prefix is used to make __FILE__ starts from the source dir with
 # out-of-tree builds.
